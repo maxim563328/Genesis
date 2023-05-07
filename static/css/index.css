@@ -1,0 +1,65 @@
+:root {
+    /* === DOM colors === */
+    --text-color: white;
+    --primary-text-color: rgb(200, 200, 200);
+    --btn-color: rgb(0, 131, 254);
+    --modal-color: rgb(35, 21, 60);
+    /* === Transitions === */
+    --tran-1: all 0.1s ease;
+    --tran-2: all 0.2s ease;
+    --tran-3: all 0.3s ease;
+    --tran-4: all 0.4s ease;
+    --tran-5: all 0.5s ease;
+    --tran-6: all 0.6s ease;
+}
+
+.description {
+    color: var(--text-color);
+}
+
+.cabinet-button {
+    color: var(--text-color);
+    font-weight: 700;
+    border-radius: 20px;
+    width: 120px;
+    line-height: 30px;
+    font-size: 12px;
+    transition: var(--tran-3);
+    box-sizing: border-box;
+    background-color: var(--btn-color);
+    text-decoration: none;
+}
+
+.description .cabinet-button:hover {
+    background-color: transparent;
+    border: 1px solid var(--btn-color);
+}
+
+.header {
+    position: absolute;
+    height: 100px;
+}
+
+.text {
+    color: var(--text-color);
+    transition: var(--tran-4);
+    text-decoration: none;
+}
+
+.nav-item a:hover {
+    color: aqua !important;
+}
+
+.modal-content {
+    background-color: var(--modal-color);
+    color: var(--text-color);
+}
+
+.modal-content .btn-close {
+    background: transparent url(../images/close.svg);
+    /* background-color: white; */
+}
+
+.modal-content .form-text {
+    color: var(--primary-text-color)
+}

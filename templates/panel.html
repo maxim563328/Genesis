@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Кабинет пользователя</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Binomix</title>
+	<link rel='icon' href="{{ url_for('static', filename='images/favicon.png') }}" type='image/x-icon' sizes="16x16" />
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/stylep.css') }}">
+	<script src="{{ url_for('static', filename='js/jquery-3.6.4.js') }}"></script>
+</head>
+
+<body>
+	<div class="wrapper w-100 h-100">
+		<nav class="header navbar navbar-expand-md">
+			<div class="container-fluid headerContent">
+				<a class="logo navbar-brand" href="#">Binom<span class="pink">ix</span><span class="gray">.ru</span></a>
+
+				<!-- "Burger" menu for mobile phones -->
+				<!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+					<span class="navbar-toggler-icon"></span>
+				</button> -->
+
+				<!-- Main navbar content -->
+				<ul class="navbar-nav nav">
+					<li class="nav-item mx-4">
+						<a class="nav-link" aria-current="page" href="#">Главная</a>
+					</li>
+					<li class="nav-item mx-4">
+						<a class="nav-link" href="#">Продукты</a>
+					</li>
+					<li class="nav-item mx-4">
+						<a class="nav-link" href="#">Кабинет</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="content">
+			<div class="row align-items-center">
+				<div class="col">
+					<h2 class="fw-weight-bold" style="font-weight: 700;">ДНК паспорт репродуктивного здоровья</h2>
+				</div>
+				<div class="col-5">
+					<div class="row">
+						<div class="col-7">Идентификатор</div>
+						<div class="col-5">Серия А001 Номер 000012</div>
+					</div>
+				</div>
+			</div>
+			<hr color="blue">
+
+
+			<!-- Sidemenu -->
+			<div class="leftCol">
+
+				<!-- Navigation -->
+				<ul class="leftNav">
+					<li><a href="{{ url_for('static', filename='panel/medcard.html') }}">Медицинская карта</a>
+					</li>
+					<li><a href="#" class="active">Генетика</a></li>
+					<li><a href="{{ url_for('static', filename='panel/biomarkers.html') }}">Биомаркеры</a></li>
+					<li><a href="{{ url_for('static', filename='panel/analytics.html') }}">Аналитика</a></li>
+					<li><a href="{{ url_for('static', filename='panel/messeneger.html') }}">Мессенджер</a></li>
+					<li><a href="{{ url_for('static', filename='panel/docs.html') }}">Документы</a></li>
+					<li><a href="{{ url_for('static', filename='panel/finances.html') }}">Финансы</a></li>
+					<li><a href="{{ url_for('static', filename='panel/settings.html') }}">Настройки кабинета</a>
+					</li>
+				</ul>
+
+				<!-- Upload form -->
+				<div class="col">
+					<form id="file-uploader">
+						<h2>Форма загрузки файлов</h2>
+						<div class="upload_form">
+							<div class="row justify-content-between">
+								<div class="col-md-3 my-auto">
+									<label for="name">Имя</label>
+								</div>
+								<div class="col my-auto">
+									<input class="form-control" style="font-size: 12px;" type="text" id="name"
+										placeholder="Ваше имя">
+								</div>
+							</div>
+							<div class="row justify-content-between">
+								<div class="col-md-3 my-auto">
+									<label for="gender_select">Пол</label>
+								</div>
+								<div class="col my-auto">
+									<select class="form-select" style="font-size: 12px;" name="gender"
+										id="gender_select">
+										<option selected>Выберите пол</option>
+										<option value="male">Мужской</option>
+										<option value="female">Женский</option>
+									</select>
+								</div>
+							</div>
+							<div class="row justify-content-between">
+								<div class="col-md-3 my-auto">
+									<label>Найти</label>
+								</div>
+								<div class="col my-auto">
+									<ul class="search_type-textbox">
+										<li>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="1"
+													id="checkbox_1">
+												<label class="form-check-label text-truncate" for="checkbox_1">
+													Статус носителя мутаций
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="2"
+													id="checkbox_2">
+												<label class="form-check-label text-truncate" for="checkbox_2">
+													Риски передачи по наследству
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="3"
+													id="checkbox_3" disabled>
+												<label class="form-check-label text-truncate" for="checkbox_3">
+													Репродуктивный ДНК паспорт
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="row justify-content-between">
+									<div class="col-md-3 my-auto">
+										<label for="fileInput" class="form-label">Файл</label>
+									</div>
+									<div class="col my-auto">
+										<input style="font-size: 10px;" class="form-control form-control-sm"
+											id="fileInput" type="file">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="my-2">
+							<button type="submit">Отправить</button>
+							<button type="reset">Сбросить</button>
+						</div>
+					</form>
+				</div>
+
+
+			</div>
+			<div class="main">
+				<!-- Data row -->
+				<div class="row">
+
+					<!-- Left column -->
+					<div class="col data-left-col">
+						<div class="row justify-content-between ">
+							<div class="col my-auto">
+								<label for="passport_author">Кем выдан</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Нейросеть Eva™" id="passport_author" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between mb-4">
+							<div class="col my-auto">
+								<label for="creation_date">Когда выдан</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="20.12.22" id="creation_date" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="username">Имя</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="{{ current_user.email }}" id="username" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between mb-4">
+							<div class="col my-auto">
+								<label for="passport_gender">Пол</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Неизвестно" id="passport_gender" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="number_polymorphisms">Полиморфизмов</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="834711" id="number_polymorphisms" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between mb-4">
+							<div class="col my-auto">
+								<label for="pathogenic">Патогенных</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="5" id="pathogenic" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="result">Результат</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" class="text-center" style="height: 60px;"
+									value="Носитель патогенных мутаций" id="result" disabled>
+							</div>
+						</div>
+					</div>
+
+					<!-- Right column -->
+
+					<div class="data-right-col col">
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="object">Объект</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Человек" id="object" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="ethnic_group">Этнос</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Европеоид" id="ethnic_group" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="sample_type">Образец</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="ДНК" id="sample_type" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="data_size">Объем данных</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Клиническая панель" id="data_size" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="genome">Что не включено</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Геном/Экзом" id="genome" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="target">Цель</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Репродуктивное здоровье" id="target" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="method_analysis">Метод анализа</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Метод анализа" id="method_analysis" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="database_type">База данных</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="OMIM" id="database_type" disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="purpose_analysis">Что анализировать</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Вставки в последовательности ДНК" id="purpose_analysis"
+									disabled>
+							</div>
+						</div>
+						<div class="row justify-content-between">
+							<div class="col my-auto">
+								<label for="not_analyzed">Что не иследованно</label>
+							</div>
+							<div class="col my-auto">
+								<input type="text" value="Замены в последовательности ДНК в хромосомах №3 и №7"
+									id="not_analyzed" disabled>
+							</div>
+						</div>
+					</div>
+					<script>
+						$('.data-right-col').css('max-height', $('.data-left-col').height() + '!important');
+						console.log(123);
+					</script>
+
+
+					<!-- Result table -->
+					<div class="mobile">
+						<table class="bordered">
+							<thead>
+								<tr>
+									<th>Мутация</th>
+									<th>Координата</th>
+									<th>Полиморфизм</th>
+									<th>Значение</th>
+									<th>Обоснование</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>NM_000492.4:c.2T>C</td>
+									<td>chr7:117120149</td>
+									<td>rs397508328</td>
+									<td>Патогенный</td>
+									<td>Ссылка (статья)</td>
+								</tr>
+								<td>NM_000492.4:c.1A>G</td>
+								<td>chr7:11712013</td>
+								<td>rs375083236</td>
+								<td>Нейтральный</td>
+								<td>Ссылка (статья)</td>
+								</tr>
+								<tr>
+									<td>NM_000492.4:c.2T>C</td>
+									<td>chr7:117120149</td>
+									<td>rs397508328</td>
+									<td>Патогенный</td>
+									<td>Ссылка (статья)</td>
+								</tr>
+								<td>NM_000492.4:c.2T>C</td>
+								<td>chr7:117120149</td>
+								<td>rs397508328</td>
+								<td>Патогенный</td>
+								<td>Ссылка (статья)</td>
+								</tr>
+								<tr>
+									<td>NM_000492.4:c.2T>C</td>
+									<td>chr7:117120135</td>
+									<td>rs397508328</td>
+									<td>Нейтральный</td>
+									<td>Ссылка (статья)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

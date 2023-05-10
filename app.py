@@ -9,7 +9,7 @@ import secrets
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:yEllow2007@127.0.0.1/genesis'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:examplepassword@127.0.0.1/genesis'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 
